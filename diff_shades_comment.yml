@@ -6,7 +6,6 @@ on:
     types: [completed]
 
 permissions:
-  pull-requests: write
 
 jobs:
   comment:
@@ -25,7 +24,6 @@ jobs:
       - name: Get details from initial workflow run
         id: metadata
         env:
-          GITHUB_TOKEN: ${{ github.token }}
         run: >
           python scripts/diff_shades_gha_helper.py comment-details
           ${{github.event.workflow_run.id }}
